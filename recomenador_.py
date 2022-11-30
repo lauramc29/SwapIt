@@ -29,7 +29,7 @@ books_data.dropna(inplace=True)
 
 
 #USUARI AMB EL QUE TREBALLAREM:
-USER_8=books_data[books_data['User-ID']== 87]
+USER_8=books_data[books_data['User-ID']==11676]
 
 USER_8=USER_8[['Book-Title', 'Book-Rating', 'ISBN']]
 
@@ -41,7 +41,7 @@ userSubsetGroup = userSubset.groupby(['User-ID'])
 userSubsetGroup = sorted(userSubsetGroup, key=lambda x: len(x[1]), reverse=True)
 userSubsetGroup = userSubsetGroup[1:100]
 
-llista_posibles_llibres=[]
+llista_posibles_llibres = pd.DataFrame(columns=['Book-Title', 'User-ID', 'ISBN'])
 
 if len(userSubsetGroup)!=0:
 
@@ -88,6 +88,10 @@ if len(userSubsetGroup)!=0:
     
     
     pearsonDF = pearsonDF[pearsonDF['Correlació']>0]
+    if len(pearsonDF)>5:
+        pearsonDF = pearsonDF[0:5]
+        
+        
     
     long= len(pearsonDF)
     
@@ -103,9 +107,14 @@ if len(userSubsetGroup)!=0:
             
             # els llibres que no tenen en comú:
             USER_OTHER = USER_OTHER[~USER_OTHER['ISBN'].isin(USER_8['ISBN'].tolist())]
-            USER_OTHER = USER_OTHER[~USER_OTHER['ISBN'].isin(llista_posibles_llibres)]
+            USER_OTHER = USER_OTHER[~USER_OTHER['ISBN'].isin(llista_posibles_llibres['ISBN'])]
             USER_OTHER = USER_OTHER.sort_values(by='Book-Rating')
-            llista_posibles_llibres += USER_OTHER['ISBN'][0:operacio].tolist()
+            nou_llibre = USER_OTHER[['ISBN', 'User-ID','Book-Title']][0:operacio]
+            llista_posibles_llibres = pd.concat([llista_posibles_llibres, nou_llibre])
+            #llista_posibles_llibres = np.unique(llista_posibles_llibres['ISBN'])
+            
+            
+            
     
     else:
              
