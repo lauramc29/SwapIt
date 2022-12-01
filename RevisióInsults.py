@@ -1,6 +1,6 @@
 
 import requests
-import json
+import json 
 
 def comprovacio_insults(text):
   url = "https://api.apilayer.com/bad_words?censor_character=*"
