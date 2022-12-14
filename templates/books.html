@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h1 style="margin-left: 70px;">ALL BOOKS READ</h1>
+    <p style="margin-left: 70px; color: #9961af;">Num books: {{books|length}}</p>
+    <div class="contenedor-imagenes">
+    {% for book in books %}
+    <a href="{{ book['amazonlink'] }}">
+        <img style="text-align:center;" width="160" height="250" src="{{ book['imagelink'] }}" title="{{ book['book'] }}"/>
+        <figcaption> {{ book['book'] }} </figcaption>
+    
+    </a>
+    {% endfor %}
+    </div>
+
+    <br>
+    <h1 style="margin-left: 70px;">RECOMMENDATIONS FOR YOU</h1>
+
+    <div class="contenedor-imagenes">
+    {% for rec in recommendations %}
+    <a href="{{ rec['amazonlink'] }}">
+        <img style="text-align:center;" width="160" height="250" src="{{ rec['imagelink'] }}" title="{{ rec['book'] }}"/>
+        <figcaption> {{ rec['book'] }} </figcaption>
+    
+    </a>
+    {% endfor %}
+
+    </div>
+
+    <br>
+    <h1 style="margin-left: 70px;">TOP 5 BOOKS</h1>
+
+    <div class="contenedor-imagenes">
+    {% for top in tops %}
+    <a href="{{ top['amazonlink'] }}">
+        <img style="text-align:center;" width="160" height="250" src="{{ top['imagelink'] }}" title="{{ top['book'] }}"/>
+        <figcaption> {{ top['book'] }} </figcaption>
+    
+    </a>
+    {% endfor %}
+
+    </div>
+
+{% endblock %}
+

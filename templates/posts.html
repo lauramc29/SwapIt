@@ -1,0 +1,15 @@
+{% extends 'all_posts.html' %}
+
+{% block content %}
+    <p style="margin: 20px; color: #9961af;">Num posts: {{posts|length}}</p>
+    <h1>{% block title %}{% endblock %}</h1>
+    {% for post in posts %}
+        <div class='post'>
+            <p style="margin: 20px; color: #645e66;">{{ post['created'] }}</p>
+            <h2 style="margin: 20px;">{{ post['title'] }}</h2>
+            <p style="font-size:110%; margin: 20px;" >{{ post['content'] }}</p>
+            <p style="font-size:90%; margin: 20px; color: #4f4b50;">{{ post['username'] }}</p>
+        </div>
+
+    {% endfor %}
+{% endblock %}

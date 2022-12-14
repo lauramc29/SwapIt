@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(222, 183, 222);
+}
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #9961af;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(170, 25, 163, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(170, 25, 163, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #ca2097;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("/static/background.jpg");
+  margin-top: 10%;
+
+  height: 55%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.centered {
+  text-align:center
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="centered">
+  <nav>
+    <input onclick="window.location.href='login';" type="button" value="Enter">
+  </nav>
+
+</div>
+</body>
+</html>

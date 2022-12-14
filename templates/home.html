@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
+body {margin:0;}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #9961af;
+}  
+
+.contenedor-imagenes {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.contenedor-imagenes img:last-child {
+      margin-right: 100px;
+}
+    
+.contenedor-imagenes img {
+      margin-left: 100px;
+    }
+
+
+
+figcaption {
+  text-align: center;
+  margin-left: 100px;
+  display: table-caption;
+  caption-side: bottom;
+  word-wrap: break-word;
+  width:160px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+</style>
+<body>
+
+<div class="icon-bar">
+  <a class="active" href="#"><i class="fa fa-home"></i></a> 
+  <a href="#"><i class="fa fa-search"></i></a> 
+  <a href="posts"><i class="fa fa-book"></i></a> 
+  <a href="#"><i class="fa fa-envelope"></i></a>  
+  <a href="logout"><i class="fa fa-user-circle"></i></a>
+</div>
+
+
+<div class="content">
+  {% block content %} {% endblock %}
+
+</div>
+
+</body>
+</html> 
